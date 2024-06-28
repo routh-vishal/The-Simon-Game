@@ -87,3 +87,45 @@ footer{
     width: 50px;
     border-radius: 25%;
 }
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+        line-height: 40px;
+    }
+    .container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 420px;
+    }
+    .scoreContainer{
+        float: none;
+        justify-content: center;
+        align-items: center;
+    }
+    .box-container{
+        height:250px;
+        width: 250px;
+        margin: 50px;
+    }
+    .box-container{
+        height: 300px;
+        width: 300px;
+        margin: 20px;
+    }
+    .box {
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+    }
+
+    .scoreContainer {
+        margin-right: 0px; 
+    }
+
+    .scorebox {
+        height: 40px; 
+        width: 40px; 
+        font-size: 1rem;
+    }
+}
