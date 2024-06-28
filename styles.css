@@ -87,7 +87,18 @@ footer{
     width: 50px;
     border-radius: 25%;
 }
+.mobile-only {
+    display: none;
+}
 @media only screen and (max-width: 600px) {
+    .mobile-only {
+        display: block;
+        height: 30px;
+        color: antiquewhite;
+        background-color: #0b4583;
+        font-family: 'Press Start 2P', cursive;;
+        margin-top: 10px;
+    }
     h1 {
         font-size: 1.5rem;
         line-height: 40px;

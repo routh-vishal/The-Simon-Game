@@ -6,13 +6,13 @@ var check=0;
 var started=false;
 var highScore=0;
 var userName= prompt("Please enter your name", "Simon")||"New User";
+var isMobile = window.matchMedia("(max-width: 768px)").matches;
 $(".username").text(userName);
 $(".game").css("display","block");
 function playSound(col){
     var audio=new Audio("sounds/"+col+".mp3");
     audio.play();
 }
-
 
 function animateWhenPress(col){
     $('.'+col).toggleClass("pressed");
@@ -23,7 +23,11 @@ function game_Over(){
     $("body").toggleClass("game-over");
     setTimeout(function(){$("body").toggleClass("game-over")},100);
     playSound("wrong");
-    $("h1").text("Game Over, Press Any Key to Restart");
+    if(isMobile){
+        $("h1").text("Game Over, Press Again to Restart");
+        $('#startButton').show();
+    }
+    else $("h1").text("Game Over, Press Any Key to Restart");
     $(".scorebox").text(highScore.toString(10));
     startOver();
 }
@@ -46,6 +50,9 @@ function sequence_new(){
     level++;
 }
 
+if(isMobile){
+    $("h1").text("Press The Start Button To Start");
+}
 
 
 $(".box").click(function(){
@@ -77,6 +84,17 @@ $(document).on("keydown",function(){
                 started=true;
                 level=1;
                 sequence_new();
+        }
+    },100);
+});
+
+$('#startButton').on('click', function() {
+    setTimeout(function(){
+        if(!started){
+                started=true;
+                level=1;
+                sequence_new();
+                $('#startButton').hide();
         }
     },100);
 });
