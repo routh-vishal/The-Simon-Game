@@ -1,0 +1,145 @@
+body{
+    background-color: #011F3F;
+    text-align: center;
+}
+h1{
+    font-size: 3rem;
+    color: antiquewhite;
+    font-family: 'Press Start 2P', cursive;
+    margin: 0px;
+}
+.box-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    margin: auto;
+    height: 550px;
+    width: 550px;
+    align-items: center;
+}
+.box{
+    margin: 25px;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border: 10px solid black;
+    border-radius: 20%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+}
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}
+.blue{
+    background-color: blue;
+}
+.yellow{
+    background-color: yellow;
+}
+.game-over {
+    background-color: red;
+    opacity: 0.8;
+}
+
+.pressed {
+    box-shadow: 0 0 20px white;
+    background-color: grey;
+}
+footer{
+    font-size: 1.2rem;
+    font-family: "Playwrite US Modern", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: antiquewhite;
+}
+.scoreContainer{
+    color: antiquewhite;
+    font-family: 'Press Start 2P', cursive;
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.username{
+    margin-bottom:20px ;
+}
+.scorenum{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.scorebox{
+    color: red;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: yellow;
+    height: 50px;
+    width: 50px;
+    border-radius: 25%;
+}
+.mobile-only {
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+    .mobile-only {
+        display: block;
+        height: 35px;
+        color: antiquewhite;
+        background-color: #0b4583;
+        font-family: 'Press Start 2P', cursive;;
+        margin-top: 10px;
+    }
+    h1 {
+        font-size: 1.5rem;
+        line-height: 40px;
+    }
+    .container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 520px;
+    }
+    .scoreContainer{
+        float: none;
+        justify-content: center;
+        align-items: center;
+    }
+    .box-container{
+        height:250px;
+        width: 250px;
+        margin: 50px;
+    }
+    .box-container{
+        height: 300px;
+        width: 300px;
+        margin: 20px;
+    }
+    .box {
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+    }
+
+    .scoreContainer {
+        margin-right: 0px; 
+    }
+
+    .scorebox {
+        height: 40px; 
+        width: 40px; 
+        font-size: 1rem;
+    }
+}

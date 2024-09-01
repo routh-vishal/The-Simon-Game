@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/login.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+<body>
+    <div class="bgtext">The Simon <br><br><br>Game</div>
+    <div class="bgtext-mob">The Simon Game</div>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm" action="/login" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit" class="loginbtn">Login</button>
+        </form>
+        <div id="errorMessage"></div>
+        <p>Don't have an account? <br><br><a href="/" id="showRegister" style="color: antiquewhite">Register here</a></p>
+    </div>
+    
+    <div class="register-container" style="display: none;">
+        <h1>Register</h1>
+        <form id="registerForm" action="/register" method="post">
+            <label for="newUsername">Username:</label>
+            <input type="text" id="newUsername" name="newUsername" required>
+            <label for="newPassword">Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+            <button type="submit" class="registerbtn">Register</button>
+        </form>
+        <div id="registerErrorMessage"></div>
+        <p>Already have an account? <br><br> <a href="/" id="showLogin" style="color: antiquewhite;">Login here</a></p>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="scripts/login.js"></script>
+</body>
+</html>

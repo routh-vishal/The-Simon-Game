@@ -1,0 +1,67 @@
+body {
+    background-color: #011F3F;
+    color: antiquewhite;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    flex-direction: column; 
+}
+.bgtext-mob{
+    display: none;
+}
+.login-container, .register-container {
+    background-color: #02254ae2;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 0;
+    position: relative;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, input, button {
+    margin: 10px 0;
+}
+
+input, button {
+    padding: 10px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#errorMessage, #registerErrorMessage {
+    color: red;
+    margin-top: 10px;
+}
+
+.loginbtn, .registerbtn {
+    background-color: yellowgreen;
+}
+.bgtext {
+    position: absolute;
+    font-size: 8rem;
+    opacity: 50%;
+    z-index: -1;
+}
+@media only screen and (max-width: 650px){
+    .bgtext {
+        font-size: 6rem;
+    }
+}
+@media only screen and (max-width: 500px){
+    .bgtext {
+        display: none;
+    }
+    .bgtext-mob{
+        display: block;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+}
