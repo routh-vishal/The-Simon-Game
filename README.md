@@ -101,6 +101,3 @@ Before you begin, ensure you have the following installed:
 ## Contributing
 
 Contributions are welcome! Please fork this repository and submit a pull request with your changes. Make sure to include clear commit messages and follow the existing code style.
-
-
-This `README.md` provides a comprehensive overview of your project, making it easy for others to understand, set up, and run. It also highlights the skills you’ve showcased in this project, which is important for your resume.
