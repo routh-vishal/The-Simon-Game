@@ -1,7 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const pg = require("pg");
+const bcrypt = require("bcrypt");
 require('dotenv').config();
+
 const db = new pg.Client({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
@@ -25,7 +27,8 @@ app.post('/register',async (req,res)=>{
     const newUsername=req.body.newUsername;
     const newPassword=req.body.newPassword;
     try {
-        await db.query("INSERT INTO form (username, password, highscore) VALUES($1, $2, $3)",[newUsername,newPassword,0]);
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+        await db.query("INSERT INTO form (username, password, highscore) VALUES($1, $2, $3)",[newUsername,hashedPassword,0]);
         res.redirect('/');
     } catch (err) {
         console.error(err);
@@ -38,9 +41,16 @@ app.post('/login',async (req,res)=>{
     const username=req.body.username;
     const password=req.body.password;
     try {
-        const result = await db.query("SELECT * FROM form WHERE username=$1 AND password=$2", [username, password]);
+        const result = await db.query("SELECT * FROM form WHERE username=$1", [username]);
         if (result.rows.length > 0) {  
-            res.render("index.ejs", { username: username, highscore: result.rows[0].highscore });
+            const user = result.rows[0];
+            const isPasswordMatch = await bcrypt.compare(password, user.password); 
+
+            if (isPasswordMatch) {
+                res.render("index.ejs", { username: username, highscore: user.highscore });
+            } else {
+                res.status(401).send("Wrong details");
+            }
         } else {
             res.status(401).send("Wrong details");  
         }
@@ -61,6 +71,11 @@ app.post('/updateHighScore', async (req, res) => {
         res.status(500).send("Error updating high score");
     }
 });
+
+app.get('/logout', (req, res) => {
+    res.redirect('/');
+});
+
 
 
 app.listen(3000, () => {
