@@ -85,8 +85,6 @@ Before you begin, ensure you have the following installed:
 2. **Access the application**:
    - Open your web browser and go to `http://localhost:3000` (or the port specified in your `.env` file).
 
-Note for local development: If you get The server does not support SSL connections, comment out the ssl option in index.js when connecting to your local PostgreSQL.
-
 ## Project Structure
 
 ```plaintext

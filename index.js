@@ -5,10 +5,12 @@ const bcrypt = require("bcrypt");
 require('dotenv').config();
 
 const db = new pg.Client({
-    connectionString: process.env.DATABASE_URL,
-    //ssl: { rejectUnauthorized: false } 
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
 });
-
 
 db.connect();
 
@@ -74,8 +76,8 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+
+app.listen(3000, () => {
+    console.log("Server is running on port 3000");
 });
